@@ -24,8 +24,8 @@ enum KernelTypes
 
 typedef double Matrix[3][3];
 
-uint8_t getPixelValue(Image *srcImage, int x, int y, int bit, Matrix algorithm);
-void convolute(Image *srcImage, Image *destImage, Matrix algorithm);
+uint8_t getPixelValue(Image *srcImage, int x, int y, int bit, Matrix *algorithm);
+void *convolute(void *td);
 int Usage();
 enum KernelTypes GetKernelType(char *type);
 
