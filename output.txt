@@ -1,0 +1,25 @@
+Script started on Fri Oct 31 18:13:16 2025
+]0;benmonti@r1n06.darwin:~/CISC372_picProject[?1034h[benmonti@r1n06 CISC372_picProject]$ srun ./pthreads_image pic3.jpg r sharpen 4
+Thread: 0 - Start row: 0 - End row: 1512
+Thread: 0 - Start col: 0 - End col: 2016
+Thread: 1 - Start row: 0 - End row: 1512
+Thread: 1 - Start col: 2016 - End col: 4032
+Thread: 2 - Start row: 1512 - End row: 3024
+Thread: 2 - Start col: 0 - End col: 2016
+Thread: 3 - Start row: 1512 - End row: 3024
+Thread: 3 - Start col: 2016 - End col: 4032
+Image height: 3024
+Image width: 4032
+Took 6.989567 seconds
+]0;benmonti@r1n06.darwin:~/CISC372_picProject[benmonti@r1n06 CISC372_picProject]$ srun ./pthreads_image pic3.jpg sharpen 4[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@o[1@p[1@e[1@n[8@MP_image
+Thread 0: Start row: 0 - End row: 756
+Thread 1: Start row: 756 - End row: 1512
+Thread 3: Start row: 2268 - End row: 3024
+Thread 2: Start row: 1512 - End row: 2268
+Image height: 3024
+Image width: 4032
+Took 6.953238 seconds
+]0;benmonti@r1n06.darwin:~/CISC372_picProject[benmonti@r1n06 CISC372_picProject]$ exit
+exit
+
+Script done on Fri Oct 31 18:14:01 2025
