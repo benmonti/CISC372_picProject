@@ -137,7 +137,9 @@ enum KernelTypes GetKernelType(char *type)
 // argv is expected to take 2 arguments.  First is the source file name (can be jpg, png, bmp, tga).  Second is the lower case name of the algorithm.
 int main(int argc, char **argv)
 {
-
+    struct timespec start, finish;
+    clock_gettime(CLOCK_REALTIME, &start);
+    // t1 = time(NULL);
     pthread_t *thread_handles;
     long t1, t2, thread;
 
@@ -173,9 +175,6 @@ int main(int argc, char **argv)
     grid_cols = thread_count / grid_rows;
     int tile_height = srcImage.height / grid_rows;
     int tile_width = srcImage.width / grid_cols;
-    struct timespec start, finish;
-    clock_gettime(CLOCK_REALTIME, &start);
-    // t1 = time(NULL);
     for (thread = 0; thread < thread_count; thread++)
     {
         ThreadData *td = malloc(sizeof(ThreadData));
