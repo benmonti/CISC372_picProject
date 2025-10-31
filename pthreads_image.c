@@ -91,8 +91,6 @@ void *convolute(void *td)
     end_row = data->end_row;
     start_col = data->start_col;
     end_col = data->end_col;
-    printf("Thread: %d - Start row: %d - End row: %d\n", my_rank, start_row, end_row);
-    printf("Thread: %d - Start col: %d - End col: %d\n", my_rank, start_col, end_col);
     for (row = start_row; row < end_row; row++)
     {
         for (pix = start_col; pix < end_col; pix++)
@@ -195,7 +193,6 @@ int main(int argc, char **argv)
         pthread_join(thread_handles[thread], NULL);
     }
     free(thread_handles);
-    printf("Image height: %d\nImage width: %d\n", destImage.height, destImage.width);
     stbi_write_png("output.png", destImage.width, destImage.height, destImage.bpp, destImage.data, destImage.bpp * destImage.width);
     stbi_image_free(srcImage.data);
 

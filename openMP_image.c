@@ -77,7 +77,6 @@ void convolute(Image *srcImage, Image *destImage, Matrix algorithm)
     int rows_per_thread = srcImage->height / thread_count;
     start_row = my_rank * rows_per_thread;
     end_row = (my_rank == thread_count - 1) ? srcImage->height : (my_rank + 1) * rows_per_thread;
-    printf("Thread %d: Start row: %d - End row: %d\n", my_rank, start_row, end_row);
     for (row = start_row; row < end_row; row++)
     {
         for (pix = 0; pix < srcImage->width; pix++)
@@ -155,7 +154,6 @@ int main(int argc, char **argv)
 #pragma omp parallel num_threads(thread_count)
     convolute(&srcImage, &destImage, algorithms[type]);
 
-    printf("Image height: %d\nImage width: %d\n", destImage.height, destImage.width);
     stbi_write_png("output.png", destImage.width, destImage.height, destImage.bpp, destImage.data, destImage.bpp * destImage.width);
     stbi_image_free(srcImage.data);
 
